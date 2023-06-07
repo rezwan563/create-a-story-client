@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'lobster': ['Lobster', 'cursive', 'font-sans'],
+        'slack': ['Slackside One', 'cursive', 'font-sans'],
+        'tail': ['Yellowtail', 'cursive', 'font-sans'],
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
