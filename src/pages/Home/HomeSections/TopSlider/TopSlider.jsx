@@ -22,7 +22,7 @@ const TopSlider = () => {
     const img3 = "https://cdn.wallpapersafari.com/81/34/T3JMks.jpg"
     const img4 = "https://images.squarespace-cdn.com/content/v1/59da11e98419c28f51bab499/1568345122515-5Z847U4A0FUP6WMBHPPU/FortManle-1220_0101.jpg"
   return (
-    <>
+    <div className="">
         <Swiper
         spaceBetween={30}
         effect={"fade"}
@@ -35,24 +35,24 @@ const TopSlider = () => {
           clickable: true,
         }}
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
-        className="mySwiper"
+        className="mySwiper "
       >
         {/* TODO: ADD TITLE TO PHOTOS */}
         <SwiperSlide>
-          <img className="w-full h-screen" src={img1} />
+          <img className="w-full md:h-screen" src={img1} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-screen" src={img2} />
+          <img className="w-full md:h-screen" src={img2} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-screen" src={img3} />
+          <img className="w-full  md:h-screen" src={img3} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-screen" src={img4} />
+          <img className="w-full md:h-screen" src={img4} />
         </SwiperSlide>
         
       </Swiper>
-    </>
+    </div>
   );
 };
 
