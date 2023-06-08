@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../../../components/SectionTitle";
+import useClass from "../../../../hooks/useClass";
+import ClassCard from "./ClassCard";
 
 const PopularClasses = () => {
-    const [classes, setClasses] = useState([])
-    useEffect(() =>{
-        fetch('classes.json')
-        .then(res => res.json())
-        .then(data => setClasses(data))
-    },[])
+    // const [classes, setClasses] = useState([])
+    const [classes] = useClass()
   return (
     <>
       <SectionTitle title="Popular Classes"></SectionTitle>
       <div className="max-w-7xl mx-auto">
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+            
             {
-                // classes.map(class)
+                classes.slice(0, 6).map(cls => <ClassCard key={cls._id} cls={cls}></ClassCard>)
             }
+            
         </div>
       </div>
     </>

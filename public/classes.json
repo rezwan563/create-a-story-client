@@ -4,55 +4,63 @@
     "instructor": "John Smith",
     "availableSeats": 10,
     "price": 5,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://i.ibb.co/XZsw5xB/download.jpg",
+    "enrolledStudents": 8
   },
   {
     "name": "Portrait Photography",
     "instructor": "Jane Doe",
     "availableSeats": 5,
     "price": 8,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://i.ibb.co/XZsw5xB/download.jpg",
+    "enrolledStudents": 3
   },
   {
     "name": "Landscape Photography",
     "instructor": "Michael Johnson",
     "availableSeats": 15,
     "price": 7,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://i.ibb.co/XZsw5xB/download.jpg",
+    "enrolledStudents": 10
   },
   {
     "name": "Street Photography",
     "instructor": "Sarah Anderson",
     "availableSeats": 12,
     "price": 6,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://i.ibb.co/XZsw5xB/download.jpg",
+    "enrolledStudents": 5
   },
   {
     "name": "Wildlife Photography",
     "instructor": "David Thompson",
     "availableSeats": 8,
     "price": 9,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://i.ibb.co/XZsw5xB/download.jpg",
+    "enrolledStudents": 2
   },
   {
     "name": "Product Photography",
     "instructor": "Emily Brown",
     "availableSeats": 7,
     "price": 4,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://i.ibb.co/XZsw5xB/download.jpg",
+    "enrolledStudents": 6
   },
   {
     "name": "Fashion Photography",
     "instructor": "Alexandra Lee",
     "availableSeats": 10,
     "price": 7,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://i.ibb.co/XZsw5xB/download.jpg",
+    "enrolledStudents": 4
   },
   {
     "name": "Architectural Photography",
     "instructor": "Robert Wilson",
     "availableSeats": 6,
     "price": 8,
-    "image": "https://i.ibb.co/XZsw5xB/download.jpg"
+    "image": "https://example.com/architectural_photography.jpg",
+    "enrolledStudents": 1
   }
 ]

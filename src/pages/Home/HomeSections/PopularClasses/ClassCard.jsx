@@ -1,23 +1,23 @@
 import React from "react";
 
-const ClassCard = () => {
+const ClassCard = ({cls}) => {
+    const { name, instructor, image, availableSeats, enrolledStudents} = cls
   return (
     <div className="card w-96 bg-base-100 shadow-xl px-2 ">
       <figure>
         <img
-          src="https://i.ibb.co/yQgH1qL/istockphoto-1311107708-612x612.jpg"
+          src={image}
           alt="learning"
         />
       </figure>
-      <div className="card-body">
-        <h2 className="card-title">
-          Shoes!
-          <div className="badge badge-secondary">NEW</div>
+      <div className="min-h-[10em]">
+        <h2 className="text-xl md:text-2xl font-bold">
+          {name}
+          <div className="badge badge-ghost">Popular</div>
         </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          <div className="badge badge-outline bg-red-200 p-4">{availableSeats}</div>
+          <div className="badge badge-outline bg-green-200 p-4">{enrolledStudents}</div>
         </div>
       </div>
     </div>
