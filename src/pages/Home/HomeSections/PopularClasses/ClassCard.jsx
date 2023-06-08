@@ -3,7 +3,7 @@ import React from "react";
 const ClassCard = ({cls}) => {
     const { name, instructor, image, availableSeats, enrolledStudents} = cls
   return (
-    <div className="card w-96 bg-base-100 shadow-xl px-2 relative">
+    <div className="card w-full md:w-96 bg-base-100 shadow-xl px-2 relative">
       <figure>
         <img
           src={image}
@@ -18,7 +18,7 @@ const ClassCard = ({cls}) => {
         <p>Instructor: {instructor}</p>
         <div className="card-actions justify-end absolute bottom-5">
           <div className="badge badge-outline bg-red-200 p-4">Availabe Seats: {availableSeats}</div>
-          <div className="badge badge-outline bg-green-200 p-4">Enrolled Seats: {enrolledStudents}</div>
+          <div className="badge badge-outline bg-green-200 p-4">Enrolled Students: {enrolledStudents}</div>
         </div>
       </div>
     </div>
