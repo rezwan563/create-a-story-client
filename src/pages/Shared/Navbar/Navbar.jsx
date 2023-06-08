@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   const navItems = (
     <>
       <li>
@@ -41,27 +43,35 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
-      <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=1060&t=st=1686143087~exp=1686143687~hmac=8ceb1cde644dac8278ae24e371e172fea7cf34be47573a662bd13bbcd23fa6be" />
+      {user ? (
+        <>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=1060&t=st=1686143087~exp=1686143687~hmac=8ceb1cde644dac8278ae24e371e172fea7cf34be47573a662bd13bbcd23fa6be" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-sm dropdown-content z-10 bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">Profile</a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
           </div>
-        </label>
-        <ul
-          tabIndex={0}
-          className="mt-3 p-2 shadow menu menu-sm dropdown-content z-10 bg-base-100 rounded-box w-52"
-        >
-          <li>
-            <a className="justify-between">Profile</a>
-          </li>
-          <li>
-            <a>Settings</a>
-          </li>
-          <li>
-            <a>Logout</a>
-          </li>
-        </ul>
-      </div>
+        </>
+      ) : (
+        <Link to='/login' className="bg-black hover:bg-slate-800 p-2 text-white ">
+          Login
+        </Link>
+      )}
     </div>
   );
 };

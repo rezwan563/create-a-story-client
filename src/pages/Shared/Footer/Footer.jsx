@@ -6,7 +6,7 @@ const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <footer className="footer flex-col justify-between  items-center  p-4 bg-black text-white ">
+    <footer className="footer  flex-col justify-between  items-center  p-4 bg-black text-white ">
       <div className="items-center grid-flow-col">
         <Link to="/" className=" font-slack text-3xl">
           CreateAStory

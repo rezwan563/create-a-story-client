@@ -5,6 +5,8 @@ import Instructors from "../pages/Instructors/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes/Classes";
 import DashboardLayout from "../layout/DashboardLayout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
         path:'/classes',
         element: <Classes></Classes>
        },
+       {
+        path:'/login',
+        element: <Login></Login>,
+       },
+       {
+        path:'/register',
+        element: <Register></Register>
+       }
       
 
     ]
@@ -40,7 +50,7 @@ const router = createBrowserRouter([
   },
   {
     path:'*',
-    element: <div>You are lost</div>
+    element: <div className="text-2xl text-center">You are lost</div>
   }
 ]);
 
