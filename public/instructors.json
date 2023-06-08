@@ -1,0 +1,93 @@
+[
+  {
+    "name": "John Smith",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "john.smith@gmail.com",
+    "numClasses": 3,
+    "classes": [
+      "Basic Photography",
+      "Portrait Photography",
+      "Landscape Photography"
+    ]
+  },
+  {
+    "name": "Jane Doe",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "jane.doe@gmail.com",
+    "numClasses": 5,
+    "classes": [
+      "Street Photography",
+      "Wildlife Photography",
+      "Product Photography",
+      "Fashion Photography",
+      "Architectural Photography"
+    ]
+  },
+  {
+    "name": "Michael Johnson",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "michael.johnson@gmail.com",
+    "numClasses": 2,
+    "classes": ["Studio Photography", "Event Photography"]
+  },
+  {
+    "name": "Sarah Anderson",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "sarah.anderson@gmail.com",
+    "numClasses": 4,
+    "classes": [
+      "Night Photography",
+      "Travel Photography",
+      "Food Photography",
+      "Black and White Photography"
+    ]
+  },
+  {
+    "name": "David Thompson",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "david.thompson@gmail.com",
+    "numClasses": 3,
+    "classes": [
+      "Nature Photography",
+      "Macro Photography",
+      "Underwater Photography"
+    ]
+  },
+  {
+    "name": "Emily Brown",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "emily.brown@gmail.com",
+    "numClasses": 6,
+    "classes": [
+      "Lighting Techniques",
+      "Wedding Photography",
+      "Street Portraits",
+      "Film Photography",
+      "Mobile Photography",
+      "Post-processing Workflow"
+    ]
+  },
+  {
+    "name": "Alexandra Lee",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "alexandra.lee@gmail.com",
+    "numClasses": 4,
+    "classes": [
+      "Fashion Photography",
+      "Editorial Photography",
+      "Studio Lighting",
+      "Model Photography"
+    ]
+  },
+  {
+    "name": "Robert Wilson",
+    "image": "https://i.ibb.co/Npndz3B/827516692-Photographer.jpg",
+    "email": "robert.wilson@gmail.com",
+    "numClasses": 3,
+    "classes": [
+      "Architectural Photography",
+      "Urban Exploration",
+      "Aerial Photography"
+    ]
+  }
+]
