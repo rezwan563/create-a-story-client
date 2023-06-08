@@ -1,7 +1,7 @@
 import React from "react";
 
 const ClassInfo = ({cls}) => {
-    const {name, image, availableSeats, enrolledStudents, price, instructor} = cls
+    const { _id, name, image, availableSeats, enrolledStudents, price, instructor} = cls
   return (
     <div className="max-w-7xl mx-auto my-2 md:my-10">
       <div className="card w-full md:w-96 p-2 bg-base-100 shadow-xl">
@@ -17,8 +17,8 @@ const ClassInfo = ({cls}) => {
           </h2>
           <p><small>{instructor}</small></p>
           <div className="card-actions justify-start">
-            <div className="badge badge-outline">Remaining Seats: {availableSeats}</div>
-            <div className="badge badge-outline">Enrolled Students: {enrolledStudents}</div>
+            <div className="">Remaining Seats: <span className="text-lg md:text-xl">{availableSeats}</span></div>
+            <div className="">Enrolled Students: <span className="text-lg md:text-xl">{enrolledStudents}</span></div>
           </div>
           <button className="bg-black hover:bg-slate-900 p-2 text-white dark:bg-slate-600">Enroll</button>
         </div>

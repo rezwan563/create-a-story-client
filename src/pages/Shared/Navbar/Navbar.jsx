@@ -21,7 +21,7 @@ const Navbar = () => {
   );
   return (
     // TODO: Sticky navbar
-    <div className="navbar  bg-base-100 flex justify-around items-center">
+    <div className="navbar shadow-lg bg-base-100 flex justify-around items-center">
       <div className="">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import useAllClass from "../../../hooks/useAllClass";
 import useAllInstructor from "../../../hooks/useAllInstructor";
+import InstructorInfo from "../InstructorInfo/InstructorInfo";
 
 const Instructors = () => {
     const [allInstructors] = useAllInstructor()
@@ -10,7 +10,11 @@ const Instructors = () => {
         <Helmet>
             <title>Instructors | CreateAStory</title>
         </Helmet>
-      <h2 className="text-2xl">Instructors page: {allInstructors?.length}</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {
+            allInstructors.map(instructor => <InstructorInfo key={instructor._id} instructor={instructor}></InstructorInfo>)
+        }
+      </div>
     </div>
   );
 };
