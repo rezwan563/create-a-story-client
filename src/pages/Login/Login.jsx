@@ -1,22 +1,30 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
-
+import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { emailLogin, googleLogin} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
+    const [error, setError] = useState('')
+    const [hidden, setHidden] = useState(true)
+
     const onSubmit = data => {
         emailLogin(data.email, data.password)
+        navigate(from)
         .then(toast.success('Login successful'))
-        .catch(err => console.log(err))
+        .catch(err => setError(err.message))
     };
     const handleGoogleLogin = () =>{
         googleLogin()
         .then((r) =>{
             const loggedUser = r.user;
+            navigate(from)
             toast.success('Login Successful')
         })
         .catch(err => console.error(err))
@@ -54,7 +62,7 @@ const Login = () => {
                 Your password
               </label>
               <input
-                type="password"
+                type={hidden ? 'password' : 'text'}
                 name="password"
                 {...register('password')}
                 id="password"
@@ -62,6 +70,12 @@ const Login = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 required
               />
+              {
+                error && <p>{error}</p>
+              }
+              {
+                hidden ? <><IoEyeOffSharp onClick={() => setHidden(!hidden)}></IoEyeOffSharp></> : <><IoEyeSharp onClick={() => setHidden(!hidden)}></IoEyeSharp></>
+              }
             </div>
             <div className=""></div>
             <button

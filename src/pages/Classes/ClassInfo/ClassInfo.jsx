@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const ClassInfo = ({cls}) => {
     const { _id, name, image, availableSeats, enrolledStudents, price, instructor} = cls
+    const {user} = useContext(AuthContext)
   return (
     <div className="max-w-7xl mx-auto my-2 md:my-10">
       <div className="card w-full md:w-96 p-2 bg-base-100 shadow-xl">
