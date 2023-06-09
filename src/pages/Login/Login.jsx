@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
   return (
     <div className="h-screen">
       <div className="flex justify-center items-center">
         <div className="w-full max-w-sm my-5 md:my-10 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form className="space-y-6" action="#">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" action="#">
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-              Sign in to our platform
+              Log in to continue
             </h5>
             <div>
               <label
@@ -21,6 +24,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
+                {...register('name')}
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="name@company.com"
@@ -37,6 +41,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
+                {...register('password')}
                 id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
