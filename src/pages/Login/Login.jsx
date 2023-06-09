@@ -16,9 +16,9 @@ const Login = () => {
 
     const onSubmit = data => {
         emailLogin(data.email, data.password)
-        navigate(from)
         .then(toast.success('Login successful'))
         .catch(err => setError(err.message))
+        navigate(from)
     };
     const handleGoogleLogin = () =>{
         googleLogin()
