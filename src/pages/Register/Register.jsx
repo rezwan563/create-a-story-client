@@ -2,31 +2,34 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [confirmError, setConfirmError] = useState('')
     const [error, setError] = useState('')
     const { createUser, profileUpdate} = useContext(AuthContext)
 
     const onSubmit = data => {
         const confirm = data.confirm;
         const password = data.password;
-        if(password === confirm){
-            setError('Password did not match')
+        if(password !== confirm){
+            setConfirmError('Password did not match')
             return
         }
         createUser(data.email, data.password)
         .then(() =>{
             profileUpdate(data.name, data.photo)
             .then(() =>{
-
+                toast.success('Profile Created')
             })
             .catch(error =>{
-
+                console.log(error.message)
             })
         })
         .catch((error) =>{
-
+            setError(`${error.message}`)
+            toast.warning(`${error.message}`)
         })
 
         
@@ -110,7 +113,7 @@ const Register = () => {
                 required
               />
               {
-                error && <p><small>{error}</small></p>
+                confirmError && <p><small>{confirmError}</small></p>
               }
             </div>
             <div>

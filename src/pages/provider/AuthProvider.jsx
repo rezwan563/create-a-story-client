@@ -4,6 +4,7 @@ import app from '../../firebase/firebase.config';
 
 export const AuthContext = createContext()
 const auth = getAuth(app);
+const gooleProvider = new GoogleAuthProvider()
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -32,7 +33,7 @@ const AuthProvider = ({children}) => {
 
     const googleLogin = () =>{
         setLoading(true)
-        return signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, gooleProvider)
     }
 
     useEffect(() =>{

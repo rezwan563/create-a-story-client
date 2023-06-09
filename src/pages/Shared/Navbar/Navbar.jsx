@@ -2,9 +2,15 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () =>{
+    logOut()
+    .then(toast.success('Logout Successful'))
+    .catch()
+  }
   const navItems = (
     <>
       <li>
@@ -48,7 +54,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=1060&t=st=1686143087~exp=1686143687~hmac=8ceb1cde644dac8278ae24e371e172fea7cf34be47573a662bd13bbcd23fa6be" />
+                <img src={user.photoURL} />
               </div>
             </label>
             <ul
@@ -61,7 +67,7 @@ const Navbar = () => {
               <li>
                 <a>Settings</a>
               </li>
-              <li>
+              <li onClick={handleLogout}>
                 <a>Logout</a>
               </li>
             </ul>
