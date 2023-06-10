@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import useSelectClass from "../../../hooks/useSelectClass";
 
 const ClassInfo = ({ cls }) => {
   const {
@@ -13,14 +14,32 @@ const ClassInfo = ({ cls }) => {
     price,
     instructor,
   } = cls;
+  
   const { user } = useContext(AuthContext);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [selectedClasses] = useSelectClass()
 
-  const handleAppliedClass = () => {
+  const handleAppliedClass = (classId) => {
     if (!user) {
       toast.warning("Please login to continue");
+      return navigate('/login', {state:{from: location}})
     }
-    
+    const classInfo = {selectedClass: classId, name, image, price, availableSeats, enrolledStudents, instructor, email: user?.email}
+    fetch('http://localhost:5000/select_classes',{
+      method: "POST",
+      headers:{
+        'content-type':'application/json',
+    },
+    body: JSON.stringify(classInfo)
+    })
+    .then(res=>res.json())
+    .then(data =>{
+      if(data.insertedId){
+        toast.success('Class selected')
+      }
+    })
+
   };
   return (
     <div className="max-w-7xl mx-auto my-2 md:my-10">
@@ -34,19 +53,19 @@ const ClassInfo = ({ cls }) => {
             <small>{instructor}</small>
           </p>
           <p>Price: ${price}</p>
-          <div className="card-actions justify-start">
-            <div className="">
+          <div className=" ">
+            <p className="">
               Remaining Seats:{" "}
               <span className="text-lg md:text-xl">{availableSeats}</span>
-            </div>
-            <div className="">
+            </p>
+            <p className="">
               Enrolled Students:{" "}
               <span className="text-lg md:text-xl">{enrolledStudents}</span>
-            </div>
+            </p>
           </div>
-          <button
-            onClick={handleAppliedClass }
-            className="bg-black hover:bg-slate-900 p-2 text-white dark:bg-slate-600"
+          <button  
+            onClick={()=>handleAppliedClass(_id) }
+            className={`${false ? 'hidden' : 'bg-black hover:bg-slate-900 p-2 text-white dark:bg-slate-600'}`}
           >
             Apply
           </button>

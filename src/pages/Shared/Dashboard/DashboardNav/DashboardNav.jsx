@@ -4,36 +4,25 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { ImUsers } from "react-icons/im";
 import { GiLaptop } from "react-icons/gi";
+import { FaBookmark, FaFile, FaListAlt, FaMoneyCheck } from "react-icons/fa";
 
 const DashboardNav = () => {
   const { user } = useContext(AuthContext);
 
 //   TODO: load data to determin isAdmin/isStudent/isInstructor true
   const isAdmin = true;
-  const isStudent = false;
-  const isInstructor = false;
-//   const homeNav = (
-//     <>
-//       <li>
-//         <Link to="/">Home</Link>
-//       </li>
-//       <li>
-//         <Link to="/instructors">Instructors</Link>
-//       </li>
-//       <li>
-//         <Link to="/classes">Classes</Link>
-//       </li>
-//     </>
-//   );
+  const isStudent = true;
+  const isInstructor = true;
+
   const navItems = (
     <>
       {isStudent && (
         <>
           <li>
-            <Link to="/dashboard/selected_classes">My Selected Classes</Link>
+            <Link to="/dashboard/selected_classes"><FaBookmark></FaBookmark>My Selected Classes</Link>
           </li>
           <li>
-            <Link to="/dashboard/erolled_classes">My Enrolled Class</Link>
+            <Link to="/dashboard/erolled_classes"><FaMoneyCheck></FaMoneyCheck>My Enrolled Class</Link>
           </li>
         </>
       )}
@@ -41,10 +30,10 @@ const DashboardNav = () => {
         <>
           {" "}
           <li>
-            <Link to="/dashboard/add_class">Add a Class</Link>
+            <Link to="/dashboard/add_class"><FaFile></FaFile>Add a Class</Link>
           </li>
           <li>
-            <Link to="/dashboard/my_classes">My Classess</Link>
+            <Link to="/dashboard/my_classes"><FaListAlt></FaListAlt>My Classess</Link>
           </li>
         </>
       )}

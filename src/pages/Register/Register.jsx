@@ -1,15 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
+    // TODO: Navigate user to homepage
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [confirmError, setConfirmError] = useState('')
     const [error, setError] = useState('')
     const { createUser, profileUpdate} = useContext(AuthContext)
+    const navigate = useNavigate()
+
 
     const onSubmit = data => {
         const confirm = data.confirm;
@@ -128,7 +131,7 @@ const Register = () => {
                 required
               />
               {
-                confirmError && <p><small>{confirmError}</small></p>
+                confirmError && <p className="text-red-500"><small>{confirmError}</small></p>
               }
             </div>
             <div>

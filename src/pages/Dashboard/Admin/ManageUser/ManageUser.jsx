@@ -1,22 +1,41 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { FaUserShield } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const ManageUser = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch("http://localhost:5000/users");
     return res.json();
   });
-//   const [isDisable, setIsDisable] = useState(false);
+  const [isDisable, setIsDisable] = useState(false);
 
-  const handleStudent = () => {
-    setIsDisable(true);
+  const handleMakeAdmin = (user) =>{
+    // setIsDisable(true)
+    fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        method:"PATCH"
+    })
+    .then(res => res.json())
+    .then(data =>{
+       if(data.modifiedCount){
+        refetch()
+        toast.success(`${user.name} is now an Admin`)
+       }
+    })
+    
+  }
+
+  const handleStudent = (userId) => {
+    setIsDisable(true)
+    console.log('clicked', userId);
   };
-  const handleInstructor = () => {
+  const handleInstructor = (userId) => {
     setIsDisable(true);
+    console.log('clicked', userId);
   };
   return (
-    <div>
+    <div className="w-full px-2">
       <Helmet>
         <title>Manage User | Dashboard</title>
       </Helmet>
@@ -31,8 +50,10 @@ const ManageUser = () => {
               <th>Sl.</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Student</th>
+              <th>Role</th>
               <th>Instructor</th>
+              <th>Admin</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -41,16 +62,21 @@ const ManageUser = () => {
                 <th>{index + 1}</th>
                 <td>{user?.name}</td>
                 <td>{user?.email}</td>
-                <td>
-                  <button disabled={true} className="bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white">
-                    Make Student
-                  </button>
-                </td>
-                <td>
-                  <button className="bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white">
+                <td>{user?.role === 'admin' ? 'admin' : 'student'}</td>
+                {/* TODO: disable button on click */}
+                <td >
+                  <button onClick={() => handleInstructor(user._id)}  className={` ${isDisable ? 'bg-red-200' : 'bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white'}`}>
                     Make Instructor
                   </button>
                 </td>
+                <td>
+                  <button onClick={() => handleMakeAdmin(user)} disabled={isDisable}  className={`bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white ${isDisable ? 'bg-red-200': ''}`}>
+                    Make Admin
+                  </button>
+                </td>
+                <td><button onClick={() => handleDeleteUser(user)}  className={`bg-red-500 hover:bg-red-600 rounded-md p-2 text-white ${isDisable ? 'bg-red-200': ''}`}>
+                    Delete User
+                  </button></td>
               </tr>
             ))}
           </tbody>
