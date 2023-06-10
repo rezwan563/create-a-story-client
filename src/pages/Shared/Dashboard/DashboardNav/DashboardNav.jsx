@@ -5,9 +5,11 @@ import { Helmet } from "react-helmet-async";
 import { ImUsers } from "react-icons/im";
 import { GiLaptop } from "react-icons/gi";
 import { FaBookmark, FaFile, FaListAlt, FaMoneyCheck } from "react-icons/fa";
+import useSelectClass from "../../../../hooks/useSelectClass";
 
 const DashboardNav = () => {
   const { user } = useContext(AuthContext);
+  const [selectedClasses] = useSelectClass()
 
 //   TODO: load data to determin isAdmin/isStudent/isInstructor true
   const isAdmin = true;
