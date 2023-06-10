@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { emailLogin, googleLogin} = useContext(AuthContext)
@@ -24,13 +25,27 @@ const Login = () => {
         googleLogin()
         .then((r) =>{
             const loggedUser = r.user;
+            const savedUser = {name: loggedUser.displayName, email: loggedUser.email}
+            fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers:{
+                        'content-type' : 'application/json' 
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                .then(res =>res.json())
+                .then(data =>{
+                    toast.success('Login successful')
+                })
             navigate(from)
-            toast.success('Login Successful')
         })
         .catch(err => console.error(err))
     }
   return (
     <div className="h-screen">
+        <Helmet>
+            <title>Login | CreateAStory</title>
+        </Helmet>
       <div className="flex justify-center items-center">
         <div className="w-full max-w-sm my-5 md:my-10 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" action="#">

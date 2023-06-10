@@ -46,12 +46,12 @@ const router = createBrowserRouter([
   },
   {
     path:'dashboard',
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
     children: [
         // TODO: Dashboard links on the sidebar
         {
             path:'dashboard/',
-            element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+            element: <Dashboard></Dashboard>
         },
         {
             path:'selected_classes',

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -21,7 +22,18 @@ const Register = () => {
         .then(() =>{
             profileUpdate(data.name, data.photo)
             .then(() =>{
-                toast.success('Profile Created')
+               const savedUser = {name: data.name, email: data.email}
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers:{
+                        'content-type' : 'application/json' 
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                .then(res =>res.json())
+                .then(data =>{
+                    toast.success('Profile Created')
+                })
             })
             .catch(error =>{
                 console.log(error.message)
@@ -37,6 +49,9 @@ const Register = () => {
         };
   return (
     <div className="h-screen">
+        <Helmet>
+            <title>Register | CreateAStory</title>
+        </Helmet>
       <div className="flex justify-center items-center">
         <div className="w-full max-w-sm p-4 my-5 md:my-10 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" action="#">
