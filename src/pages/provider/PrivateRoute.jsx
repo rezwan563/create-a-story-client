@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
-import { AuthContext } from './AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useAdmin from '../../hooks/useAdmin';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const PrivateRoute = ({children}) => {
-    const {user, loading} = useContext(AuthContext)
+    const {user, loading} = useAuth()
+    const [isAdmin, isAdminLoading] = useAdmin()
     const location = useLocation()
     if(loading){
-        return <span className="loading loading-spinner loading-lg text-center"></span>
+        return <Spinner></Spinner>
     }
-    if(user){
+    if(user ){
         return children
     }
     return <Navigate to='/login' state={{from: location}}></Navigate>

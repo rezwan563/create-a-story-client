@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaUserShield } from "react-icons/fa";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ManageUser = () => {
+  const [axiosSecure] = useAxiosSecure()
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await fetch("http://localhost:5000/users");
-    return res.json();
+    const res = await axiosSecure.get("/users");
+    return res.data;
   });
   const [isDisable, setIsDisable] = useState(false);
 

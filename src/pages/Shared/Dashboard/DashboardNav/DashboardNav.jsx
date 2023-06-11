@@ -6,13 +6,16 @@ import { ImUsers } from "react-icons/im";
 import { GiLaptop } from "react-icons/gi";
 import { FaBookmark, FaFile, FaListAlt, FaMoneyCheck } from "react-icons/fa";
 import useSelectClass from "../../../../hooks/useSelectClass";
+import useAdmin from "../../../../hooks/useAdmin";
 
 const DashboardNav = () => {
   const { user } = useContext(AuthContext);
   const [selectedClasses] = useSelectClass()
 
 //   TODO: load data to determin isAdmin/isStudent/isInstructor true
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin()
+  console.log(isAdmin);
   const isStudent = true;
   const isInstructor = true;
 
