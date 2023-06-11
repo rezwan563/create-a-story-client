@@ -32,9 +32,17 @@ const ManageUser = () => {
     setIsDisable(true)
     console.log('clicked', userId);
   };
-  const handleInstructor = (userId) => {
-    setIsDisable(true);
-    console.log('clicked', userId);
+  const handleInstructor = (user) => {
+    fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+      method:"PATCH"
+  })
+  .then(res => res.json())
+  .then(data =>{
+     if(data.modifiedCount){
+      refetch()
+      toast.success(`${user.name} is now an Instructor`)
+     }
+  })
   };
   return (
     <div className="w-full px-2">
@@ -64,10 +72,10 @@ const ManageUser = () => {
                 <th>{index + 1}</th>
                 <td>{user?.name}</td>
                 <td>{user?.email}</td>
-                <td>{user?.role === 'admin' ? 'admin' : 'student'}</td>
+                <td>{user?.role ? user.role : 'student'}</td>
                 {/* TODO: disable button on click */}
                 <td >
-                  <button onClick={() => handleInstructor(user._id)}  className={` ${isDisable ? 'bg-red-200' : 'bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white'}`}>
+                  <button onClick={() => handleInstructor(user)}  className={` ${isDisable ? 'bg-red-200' : 'bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white'}`}>
                     Make Instructor
                   </button>
                 </td>
