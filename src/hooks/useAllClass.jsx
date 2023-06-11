@@ -3,14 +3,13 @@ import { useContext, useState } from 'react'
 import { AuthContext } from '../pages/provider/AuthProvider'
 const useAllClass = () =>{
     const {user} = useContext(AuthContext)
-    const [isClicked, setIsClicked] = useState(false)
     // const handleAppliedClass =()=>{
     //     setIsClicked(true)
     // }
     
 
     const { isLoading, refetch, data: allClasses = []} = useQuery({
-        queryKey: ['all_classses', user?.email, isClicked, ],
+        queryKey: ['all_classses', user?.email ],
         queryFn: async () =>{
             const res = await fetch('http://localhost:5000/all_classes')
             refetch()

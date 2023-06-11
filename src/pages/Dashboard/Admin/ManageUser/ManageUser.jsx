@@ -12,9 +12,11 @@ const ManageUser = () => {
     return res.data;
   });
   const [isDisable, setIsDisable] = useState(false);
+  // const [disabledButtons, setDisabledButtons] = useState([]);
 
   const handleMakeAdmin = (user) =>{
     // setIsDisable(true)
+    // setDisabledButtons([...disabledButtons]);
     fetch(`http://localhost:5000/users/admin/${user._id}`,{
         method:"PATCH"
     })
@@ -80,7 +82,7 @@ const ManageUser = () => {
                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleMakeAdmin(user)} disabled={isDisable}  className={`bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white ${isDisable ? 'bg-red-200': ''}`}>
+                  <button onClick={() => handleMakeAdmin(user)} className={`bg-blue-500 hover:bg-blue-600 rounded-md p-2 text-white ${isDisable ? 'bg-red-200': ''}`}>
                     Make Admin
                   </button>
                 </td>
