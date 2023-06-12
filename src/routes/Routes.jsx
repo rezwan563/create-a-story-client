@@ -14,6 +14,7 @@ import AddAClass from "../pages/Dashboard/Instructor/AddAClass/AddAClass";
 import MyClasses from "../pages/Dashboard/Instructor/MyClasses/MyClasses";
 import ManageClass from "../pages/Dashboard/Admin/ManageClass/ManageClass";
 import ManageUser from "../pages/Dashboard/Admin/ManageUser/ManageUser";
+import PaymentSuccess from "../pages/PaymentSuccess/PaymentSuccess";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
        {
         path:'/register',
         element: <Register></Register>
+       },
+       {
+        path:'/payment/success/:tranId',
+        element: <PaymentSuccess></PaymentSuccess>
        }
       
 

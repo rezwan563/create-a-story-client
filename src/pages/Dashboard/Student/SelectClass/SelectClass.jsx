@@ -4,12 +4,33 @@ import useSelectClass from "../../../../hooks/useSelectClass";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import useAuth from "../../../../hooks/useAuth";
 
 const SelectClass = () => {
+  const {user} = useAuth()
   const [selectedClasses, refetch] = useSelectClass();
   const total =
     selectedClasses &&
     selectedClasses.reduce((sum, classes) => classes.price + sum, 0);
+
+    const handlePayment = (classInfo)=>{
+      const {name, price, instructor} = classInfo
+      const orderInfo = {studentName: user?.displayName, studentEmail: user?.email, courseName: name, coursePrice: price, courseInstructor: instructor}
+      console.log(orderInfo);
+      fetch('http://localhost:5000/orders',{
+        method: "POST",
+        headers: {
+          'content-type':'application/json',
+        },
+        body: JSON.stringify(orderInfo)
+      })
+      .then(res => res.json())
+      .then(result=>{
+        window.location.replace(result.url)
+        console.log(result);
+      })
+
+    }
   const handleDeleteClass = (classId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -45,9 +66,7 @@ const SelectClass = () => {
           Selected classes: {selectedClasses?.length}
         </h3>
         <h3 className="text-2xl">Total Price: ${total}</h3>
-        <button className="py-2 px-3 rounded-md bg-black text-white">
-          Pay
-        </button>
+        
       </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
@@ -58,6 +77,7 @@ const SelectClass = () => {
               <th>Name</th>
               <th>Instructor</th>
               <th>Price</th>
+              <th>Pay</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -68,6 +88,9 @@ const SelectClass = () => {
                 <td>{n?.name}</td>
                 <td>{n?.instructor}</td>
                 <td className="">${n?.price}</td>
+                <td><button onClick={()=>{handlePayment(n)}} className="py-2 px-3 rounded-md bg-black text-white">
+          Pay
+        </button></td>
                 <td>
                   <button
                     onClick={() => handleDeleteClass(n._id)}
