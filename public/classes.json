@@ -3,6 +3,7 @@
     "name": "Basic Photography",
     "instructor": "John Smith",
     "availableSeats": 10,
+    "instructorEmail": "john.smith@gmail.com",
     "price": 5,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 8
@@ -11,6 +12,7 @@
     "name": "Portrait Photography",
     "instructor": "Jane Doe",
     "availableSeats": 5,
+    "instructorEmail": "jane.doe@gmail.com",
     "price": 8,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 3
@@ -19,6 +21,7 @@
     "name": "Landscape Photography",
     "instructor": "Michael Johnson",
     "availableSeats": 15,
+    "instructorEmail": "michael.johnson@gmail.com",
     "price": 7,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 10
@@ -27,6 +30,7 @@
     "name": "Street Photography",
     "instructor": "Sarah Anderson",
     "availableSeats": 12,
+    "instructorEmail": "sarah.anderson@gmail.com",
     "price": 6,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 5
@@ -35,6 +39,7 @@
     "name": "Wildlife Photography",
     "instructor": "David Thompson",
     "availableSeats": 8,
+    "instructorEmail": "david.thompson@gmail.com",
     "price": 9,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 2
@@ -43,6 +48,7 @@
     "name": "Product Photography",
     "instructor": "Emily Brown",
     "availableSeats": 7,
+    "instructorEmail": "emily.brown@gmail.com",
     "price": 4,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 6
@@ -51,6 +57,7 @@
     "name": "Fashion Photography",
     "instructor": "Alexandra Lee",
     "availableSeats": 10,
+    "instructorEmail": "alexandra.lee@gmail.com",
     "price": 7,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 4
@@ -59,6 +66,7 @@
     "name": "Architectural Photography",
     "instructor": "Robert Wilson",
     "availableSeats": 6,
+    "instructorEmail": "robert.wilson@gmail.com",
     "price": 8,
     "image": "https://i.ibb.co/XZsw5xB/download.jpg",
     "enrolledStudents": 1

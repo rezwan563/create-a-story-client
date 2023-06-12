@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useAdmin from '../../hooks/useAdmin';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const PrivateRoute = ({children}) => {
+    
     const {user, loading} = useAuth()
     const location = useLocation()
+    console.log(location);
     if(loading){
         return <Spinner></Spinner>
     }
