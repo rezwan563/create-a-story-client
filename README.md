@@ -7,8 +7,8 @@ In this site you can find photography classes that you can enroll on your summer
 You will find the site [here](https://capture-a-story.web.app/)
 
 
-### User Packages
-**@tanstack/react-query**,**axios**,**eact-spinners**,**react-helmet-async**,
+### Used Packages
+**@tanstack/react-query**,**axios**,**eact-spinners**,**react-helmet-async**,**firebase**,**react-toastify**,**tailwindcss**,**react-hook-form**
 
 * You can find popular classes on our homepage
 * You can go to **Classses** page to find all our classes
