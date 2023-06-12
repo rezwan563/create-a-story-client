@@ -15,6 +15,7 @@ import MyClasses from "../pages/Dashboard/Instructor/MyClasses/MyClasses";
 import ManageClass from "../pages/Dashboard/Admin/ManageClass/ManageClass";
 import ManageUser from "../pages/Dashboard/Admin/ManageUser/ManageUser";
 import PaymentSuccess from "../pages/PaymentSuccess/PaymentSuccess";
+import ErrorPage from "../layout/ErrorLayout/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -87,7 +88,7 @@ const router = createBrowserRouter([
   },
   {
     path:'*',
-    element: <div className="text-2xl text-center">You are lost</div>
+    element: <ErrorPage></ErrorPage>,
   }
 ]);
 

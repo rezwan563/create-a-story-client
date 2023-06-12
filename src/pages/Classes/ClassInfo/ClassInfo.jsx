@@ -48,7 +48,7 @@ const ClassInfo = ({ cls }) => {
   };
   return (
     <div className="max-w-7xl mx-auto my-2 md:my-10">
-      <div className={`card w-full md:w-96 p-2 bg-base-100 shadow-xl ${availableSeats === 0 && 'bg-red-400'}`}>
+      <div className={`card w-full md:w-96 p-2 dark:bg-slate-400 dark:text-slate-700 bg-base-100 shadow-xl ${availableSeats === 0 && 'bg-red-400'}`}>
         <figure>
           <img src={image} alt="class" />
         </figure>

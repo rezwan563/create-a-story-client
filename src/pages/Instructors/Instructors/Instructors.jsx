@@ -6,7 +6,7 @@ import InstructorInfo from "../InstructorInfo/InstructorInfo";
 const Instructors = () => {
     const [allInstructors] = useAllInstructor()
   return (
-    <div>
+    <div className="dark:bg-slate-700 dark:text-white">
         <Helmet>
             <title>Instructors | CreateAStory</title>
         </Helmet>

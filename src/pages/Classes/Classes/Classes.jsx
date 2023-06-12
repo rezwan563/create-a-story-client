@@ -6,7 +6,7 @@ import ClassInfo from '../ClassInfo/ClassInfo';
 const Classes = () => {
     const [allClasses] = useAllClass()
     return (
-        <div>
+        <div className='dark:bg-slate-700'>
             <Helmet>
                 <title>Classes | CreateAStory</title>
             </Helmet>

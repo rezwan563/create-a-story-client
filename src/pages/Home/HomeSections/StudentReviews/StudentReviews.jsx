@@ -2,11 +2,11 @@ import React from "react";
 import SectionTitle from "../../../../components/SectionTitle";
 const StudentReviews = () => {
   return (
-    <div>
+    <div className="">
       <SectionTitle title="Our Students"></SectionTitle>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
-          <div className="card w-full md:w-96 p-2 bg-base-100 shadow-2xl relative">
+          <div className="card w-full md:w-96 p-2 bg-base-100 shadow-2xl relative dark:bg-slate-400 dark:text-slate-800">
             <div className="avatar">
               <div className="w-16 rounded-full ">
                 <img
@@ -26,7 +26,7 @@ const StudentReviews = () => {
               </p>
             </div>
           </div>
-          <div className="card w-full md:w-96 p-2 bg-base-100 shadow-2xl relative">
+          <div className="card w-full md:w-96 p-2 bg-base-100 shadow-2xl relative dark:bg-slate-400 dark:text-slate-800">
             <div className="avatar">
               <div className="w-16 rounded-full ">
                 <img
@@ -45,7 +45,7 @@ const StudentReviews = () => {
               </p>
             </div>
           </div>
-          <div className="card w-full md:w-96 p-2 bg-base-100 shadow-2xl relative">
+          <div className="card w-full md:w-96 p-2 bg-base-100 shadow-2xl relative dark:bg-slate-400 dark:text-slate-800">
             <div className="avatar">
               <div className="w-16 rounded-full ">
                 <img

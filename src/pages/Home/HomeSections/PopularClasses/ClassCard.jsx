@@ -3,7 +3,7 @@ import React from "react";
 const ClassCard = ({cls}) => {
     const { name, instructor, image, availableSeats, enrolledStudents} = cls
   return (
-    <div className="card w-full md:w-96 bg-base-100 shadow-xl px-2 relative">
+    <div className="card w-full md:w-96 dark:bg-slate-400 dark:text-slate-800 bg-base-100 shadow-xl px-2 relative">
       <figure>
         <img
           src={image}

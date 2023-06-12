@@ -7,14 +7,14 @@ import StudentReviews from '../HomeSections/StudentReviews/StudentReviews';
 
 const Home = () => {
     return (
-        <div>
+        <div className='dark:bg-slate-700 '>
             <Helmet>
                 <title>Home | CreateAStory</title>
             </Helmet>
             <section>
                 <TopSlider></TopSlider>
             </section>
-            <section>
+            <section className=''>
                 <PopularClasses></PopularClasses>
             </section>
             <section>
