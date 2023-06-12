@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import useSelectClass from "../../../hooks/useSelectClass";
 import useAdmin from "../../../hooks/useAdmin";
+import useIsInstructor from "../../../hooks/useIsInstructor";
 
 const ClassInfo = ({ cls }) => {
   const {
@@ -17,6 +18,7 @@ const ClassInfo = ({ cls }) => {
   } = cls;
 
   const [isAdmin] = useAdmin()
+  const [isInstructor] = useIsInstructor()
   
   const { user } = useContext(AuthContext);
   const location = useLocation();
@@ -68,7 +70,7 @@ const ClassInfo = ({ cls }) => {
           </div>
           <button  
             onClick={()=>handleAppliedClass(_id) }
-            className={`${ isAdmin ? 'hidden' : 'bg-black hover:bg-slate-900 p-2 text-white dark:bg-slate-600'}`}
+            className={`${ (isAdmin || isInstructor) ? 'hidden' : 'bg-black hover:bg-slate-900 p-2 text-white dark:bg-slate-600'}`}
           >
             Apply
           </button>
