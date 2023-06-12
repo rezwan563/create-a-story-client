@@ -4,14 +4,13 @@ import useMyClass from "../../../../hooks/useMyClass";
 
 const MyClasses = () => {
   const [myClasses] = useMyClass()
-  console.log(myClasses);
   return (
     <div className="w-full">
       <Helmet>
         <title>My Classes | Dashboard</title>
       </Helmet>
 
-      <h2>My classes : {myClasses?.length}</h2>
+      <h2 className="text-2xl font-bold">My classes : {myClasses?.length}</h2>
       <div className="overflow-x-auto">
   <table className="table table-zebra">
     {/* head */}

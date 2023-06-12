@@ -31,7 +31,7 @@ const ClassInfo = ({ cls }) => {
       return navigate('/login', {state:{from: location}})
     }
     const classInfo = {selectedClass: classId, paidStatus: false, name, image, price, availableSeats, enrolledStudents, instructor, email: user?.email}
-    fetch('http://localhost:5000/select_classes',{
+    fetch('https://assignment-12-capture-a-story-server.vercel.app/select_classes',{
       method: "POST",
       headers:{
         'content-type':'application/json',

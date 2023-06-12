@@ -19,7 +19,7 @@ const SelectClass = () => {
       
       const orderInfo = {classId: _id, studentName: user?.displayName, studentEmail: user?.email, courseName: name, coursePrice: price, courseInstructor: instructor}
       console.log(orderInfo);
-      fetch('http://localhost:5000/orders',{
+      fetch('https://assignment-12-capture-a-story-server.vercel.app/orders',{
         method: "POST",
         headers: {
           'content-type':'application/json',
@@ -44,7 +44,7 @@ const SelectClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/select_classes/${classId}`, {
+        fetch(`https://assignment-12-capture-a-story-server.vercel.app/select_classes/${classId}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

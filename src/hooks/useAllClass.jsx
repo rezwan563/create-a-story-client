@@ -11,7 +11,7 @@ const useAllClass = () =>{
     const { isLoading, refetch, data: allClasses = []} = useQuery({
         queryKey: ['all_classses', user?.email ],
         queryFn: async () =>{
-            const res = await fetch('http://localhost:5000/all_classes')
+            const res = await fetch('https://assignment-12-capture-a-story-server.vercel.app/all_classes')
             refetch()
             return res.json()
         }

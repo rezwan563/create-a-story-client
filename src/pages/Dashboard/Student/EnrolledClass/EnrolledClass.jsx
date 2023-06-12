@@ -4,7 +4,6 @@ import useEnrollClass from '../../../../hooks/useEnrollClass';
 
 const EnrolledClass = () => {
     const [enrolledClass] = useEnrollClass()
-    console.log(enrolledClass);
     return (
         <div className='w-full'>
             <Helmet>

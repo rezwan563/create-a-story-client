@@ -10,7 +10,7 @@ const useSelectClass = ()=>{
         queryKey:['select_classes', user?.email],
         enabled: !loading,
         // queryFn: async()=>{
-        //     const res = await fetch(`http://localhost:5000/select_classes?email=${user?.email}`, {
+        //     const res = await fetch(`https://assignment-12-capture-a-story-server.vercel.app/select_classes?email=${user?.email}`, {
         //         headers:{
         //             authorization: `bearer ${token}`
         //         }
@@ -19,7 +19,6 @@ const useSelectClass = ()=>{
         // }
         queryFn: async()=>{
             const res = await axiosSecure(`/select_classes?email=${user?.email}`)
-            console.log("from res ", res)
             return res.data;
         }
     })

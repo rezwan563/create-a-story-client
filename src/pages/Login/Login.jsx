@@ -26,7 +26,7 @@ const Login = () => {
         .then((r) =>{
             const loggedUser = r.user;
             const savedUser = {name: loggedUser.displayName, email: loggedUser.email}
-            fetch('http://localhost:5000/users', {
+            fetch('https://assignment-12-capture-a-story-server.vercel.app/users', {
                     method: "POST",
                     headers:{
                         'content-type' : 'application/json' 

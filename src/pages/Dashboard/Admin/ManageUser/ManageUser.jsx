@@ -17,7 +17,7 @@ const ManageUser = () => {
   const handleMakeAdmin = (user) =>{
     // setIsDisable(true)
     // setDisabledButtons([...disabledButtons]);
-    fetch(`http://localhost:5000/users/admin/${user._id}`,{
+    fetch(`https://assignment-12-capture-a-story-server.vercel.app/users/admin/${user._id}`,{
         method:"PATCH"
     })
     .then(res => res.json())
@@ -35,7 +35,7 @@ const ManageUser = () => {
     console.log('clicked', userId);
   };
   const handleInstructor = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+    fetch(`https://assignment-12-capture-a-story-server.vercel.app/users/instructor/${user._id}`,{
       method:"PATCH"
   })
   .then(res => res.json())
