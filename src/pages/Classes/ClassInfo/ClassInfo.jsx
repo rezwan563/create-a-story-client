@@ -28,7 +28,7 @@ const ClassInfo = ({ cls }) => {
       toast.warning("Please login to continue");
       return navigate('/login', {state:{from: location}})
     }
-    const classInfo = {selectedClass: classId, name, image, price, availableSeats, enrolledStudents, instructor, email: user?.email}
+    const classInfo = {selectedClass: classId, paidStatus: false, name, image, price, availableSeats, enrolledStudents, instructor, email: user?.email}
     fetch('http://localhost:5000/select_classes',{
       method: "POST",
       headers:{

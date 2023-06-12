@@ -19,9 +19,6 @@ const DashboardNav = () => {
   const [isAdmin] = useAdmin()
   const [isInstructor] = useIsInstructor()
 const isStudent = (isAdmin || isInstructor) ? false : true
-  console.log('admin', isAdmin);
-  console.log('instructor', isInstructor);
-  console.log('student', isStudent);
   // const isStudent = true;
   // const isInstructor = true;
 

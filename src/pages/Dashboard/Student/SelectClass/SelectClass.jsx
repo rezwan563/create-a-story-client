@@ -14,8 +14,10 @@ const SelectClass = () => {
     selectedClasses.reduce((sum, classes) => classes.price + sum, 0);
 
     const handlePayment = (classInfo)=>{
-      const {name, price, instructor} = classInfo
-      const orderInfo = {studentName: user?.displayName, studentEmail: user?.email, courseName: name, coursePrice: price, courseInstructor: instructor}
+      const {_id, name, price, instructor} = classInfo
+      console.log('classId', _id);
+      
+      const orderInfo = {classId: _id, studentName: user?.displayName, studentEmail: user?.email, courseName: name, coursePrice: price, courseInstructor: instructor}
       console.log(orderInfo);
       fetch('http://localhost:5000/orders',{
         method: "POST",
